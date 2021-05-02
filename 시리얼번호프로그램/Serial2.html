@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>시리얼번호자동등록</title>
+        <script>
+            let count = 0;
+            let products = [];
+            for (let i = 0; true; i++) {
+                const product = prompt("영어로 된 제품명을 입력해주세요(종료는 q를 누르세요!)", "")               
+                changeProduct = product.toLowerCase();
+                products.push(changeProduct);
+                count = 0;                
+                let initial = (changeProduct.substr(0, 2).toUpperCase());
+                if (product === "q") {
+                    break
+                }               
+                for (let i = 0; i < products.length; i++) {
+                    if (products[i] === changeProduct) {
+                        count += 1;
+                        // alert("중복")
+                    } 
+                }
+                
+                if(count < 10) {
+                    alert(`시리얼번호는${initial}000${count}입니다.`);
+                } else if (count < 100) {
+                    alert(`시리얼번호는${initial}00${count}입니다.`);
+                } else if (count < 1000) {
+                    alert(`시리얼번호는${initial}0${count}입니다.`);
+                }
+                console.log(products)               
+            }
+
+
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
